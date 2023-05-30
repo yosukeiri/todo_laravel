@@ -95,6 +95,9 @@ header nav ul li a {
     box-sizing: border-box;
 }
 @media screen and (max-width: 480px) {
+    .todo-list dl.dl_head {
+        display: none;
+    }
     .todo-list dl dt {
         width: 100%;
     }

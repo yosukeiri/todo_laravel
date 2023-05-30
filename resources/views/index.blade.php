@@ -7,6 +7,13 @@ TODO
 @section('content')
 <div class="wrapper">
 <div class="todo-list">
+    <dl class="dl_head">
+        <dt>タスク内容</dt>
+        <dd class="deadline">締切</dd>
+        <dd class="status">進捗</dd>
+        <dd class="button-area"></dd>
+        <dd class="button-area"></dd>
+    </dl>
     @foreach ($todos as $todo)
     <dl>
         <dt>{{ $todo->todo }}</dt>
