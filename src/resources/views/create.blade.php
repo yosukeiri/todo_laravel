@@ -1,13 +1,13 @@
 @extends('layout')
 
 @section('title')
-"createタイトル"
+TODO-CREATE
 @endsection
 
 @section('content')
 <div class="wrapper">
 <div class="form-area">
-<form action="">
+<form action="createTodo" method="post">
 @csrf
     <dl>
         <dt>TODO</dt>

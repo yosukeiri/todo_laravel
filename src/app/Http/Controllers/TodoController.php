@@ -17,20 +17,37 @@ class TodoController extends BaseController
         $todos = Todo::all();
         return view('index',['todos' => $todos]);
     }
-    public function createTodos()
+    public function deleteTodo(Request $request,$id)
+    {
+        $todo = Todo::find($id);
+        $todo->delete();
+        return redirect('/');
+    }
+    public function createPage()
     {
         return view('create');
     }
-    public function editTodos($id)
+    public function createTodo(Request $request)
+    {
+        $input = $request->all();
+        logger($input);
+        $todo = new Todo;
+        $todo->todo = $input['todo'];
+        $todo->deadline = $input['deadline'];
+        $todo->status = 'notstart';
+        $todo->save();
+        return redirect('/');
+    }
+    public function editTodo($id)
     {
         $todo = Todo::find($id);
         return view('edit',['todo' => $todo]);
     }
-    public function updateTodos(Request $request)
+    public function updateTodo(Request $request)
     {
         $input = $request->all();
         logger($input);
-        $todo = Todo::find($input["id"]);
+        $todo = Todo::find($input['id']);
         $todo->fill($input);
         $todo->save();
         return redirect('/');

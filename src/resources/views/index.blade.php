@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-"トップタイトル"
+TODO
 @endsection
 
 @section('content')
@@ -12,8 +12,14 @@
         <dt>{{ $todo->todo }}</dt>
         <dd class="deadline">{{ $todo->deadline }}</dd>
         <dd class="status">{{ $todo->status }}</dd>
-        <dd><a href={{ route('edit',['id'=>$todo->id]) }}>更新</a></dd>
-        <dd><button>削除</button></dd>
+        <dd class="button-area"><a href={{ route('edit',['id'=>$todo->id]) }}>更新</a></dd>
+        <dd class="button-area">
+            <form action="deleteTodo/{{$todo->id}}" method="post">
+            @csrf
+            @method('delete')
+                <button type="submit">削除</button>
+            </form>
+        </dd>
     </dl>
     @endforeach
 </div>

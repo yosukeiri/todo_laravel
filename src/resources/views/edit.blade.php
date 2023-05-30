@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-"editタイトル"
+TODO-EDIT
 @endsection
 
 @section('content')
@@ -21,10 +21,10 @@
     <dl>
         <dt>ステータス</dt>
         <dd>
-            <select name="status" selected={{ $todo->status }}>
-                <option value="notstart">未着手</option>
-                <option value="doing">作業中</option>
-                <option value="done">完了</option>
+            <select name="status">
+                <option value="notstart" @if($todo->status=="notstart") selected @endif>未着手</option>
+                <option value="doing" @if($todo->status=="doing") selected @endif>作業中</option>
+                <option value="done" @if($todo->status=="done") selected @endif>完了</option>
             </select>
         </dd>
     </dl>

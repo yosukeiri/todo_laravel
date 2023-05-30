@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>@yield('title', '初期値タイトル')</title>
+        <link rel="stylesheet" href="{{ asset('/style.css')  }}" >
+        <title>@yield('title', 'TODO')</title>
 
     </head>
     <body>
